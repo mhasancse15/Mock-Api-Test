@@ -22,5 +22,5 @@ dependencyResolutionManagement {
         }
     }
 }
-rootProject.name = "CleanMaster"
+rootProject.name = "BrainStation23Task"
 include(":app")

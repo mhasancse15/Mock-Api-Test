@@ -29,9 +29,7 @@ android {
             isMinifyEnabled = false
             isShrinkResources = false
 
-            buildConfigField("String", "BASE_URL", "\"https://api.themoviedb.org/\"")
-            buildConfigField("String", "API_KEY", "\"66eb3bde9cca0487f03e78b512b451e4\"")
-
+            buildConfigField("String", "BASE_URL", "\"https://raw.githubusercontent.com/\"")
 
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
@@ -42,8 +40,7 @@ android {
             isMinifyEnabled = true
             isShrinkResources = true
 
-            buildConfigField("String", "BASE_URL", "\"https://api.themoviedb.org/\"")
-            buildConfigField("String", "API_KEY", "\"66eb3bde9cca0487f03e78b512b451e4\"")
+            buildConfigField("String", "BASE_URL", "\"https://raw.githubusercontent.com/\"")
 
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
@@ -60,6 +57,7 @@ android {
 
     buildFeatures {
         viewBinding = true
+        dataBinding  = true
         buildConfig = true
     }
 }
@@ -113,7 +111,7 @@ dependencies {
     implementation(libs.androidx.fragment.ktx)
 
     // implementation(Dependencies.LegacySupport.legacySupport)
-
+    implementation ("com.github.mustafayigitt:MockResponseInterceptor:1.0.0")
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

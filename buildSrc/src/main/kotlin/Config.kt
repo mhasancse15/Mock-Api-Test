@@ -1,7 +1,7 @@
 object Config {
-    const val applicationId = "om.mhasancse15.cleanmaster"
+    const val applicationId = "com.mhasancse15.task"
 
-    const val detailsNameSpace = "om.mhasancse15.cleanmaster"
+    const val detailsNameSpace = "com.mhasancse15.task"
 
     const val compileSdk = 34
     const val minSdk = 24
