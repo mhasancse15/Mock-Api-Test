@@ -30,7 +30,8 @@ android {
             isShrinkResources = false
 
             buildConfigField("String", "BASE_URL", "\"https://api.themoviedb.org/\"")
-            buildConfigField("String", "API_KEY", "\"dfc67e319cc457c3d0d20948a046b160/\"")
+            buildConfigField("String", "API_KEY", "\"66eb3bde9cca0487f03e78b512b451e4\"")
+
 
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
@@ -42,7 +43,7 @@ android {
             isShrinkResources = true
 
             buildConfigField("String", "BASE_URL", "\"https://api.themoviedb.org/\"")
-            buildConfigField("String", "API_KEY", "\"dfc67e319cc457c3d0d20948a046b160/\"")
+            buildConfigField("String", "API_KEY", "\"66eb3bde9cca0487f03e78b512b451e4\"")
 
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
