@@ -1,6 +1,9 @@
 plugins {
-    alias(libs.plugins.android.application)
-    alias(libs.plugins.jetbrains.kotlin.android)
+    id("com.android.application")
+    id("org.jetbrains.kotlin.android")
+    kotlin("kapt")
+    id("com.google.dagger.hilt.android")
+    id("androidx.navigation.safeargs.kotlin")
 }
 
 android {
@@ -17,6 +20,7 @@ android {
 
         testInstrumentationRunner = Config.testInstrumentationRunner
 
+
     }
 
     buildTypes {
@@ -24,6 +28,10 @@ android {
             isDebuggable = true
             isMinifyEnabled = false
             isShrinkResources = false
+
+            buildConfigField("String", "BASE_URL", "\"https://api.themoviedb.org/\"")
+            buildConfigField("String", "API_KEY", "\"dfc67e319cc457c3d0d20948a046b160/\"")
+
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
             )
@@ -32,6 +40,10 @@ android {
             isDebuggable = false
             isMinifyEnabled = true
             isShrinkResources = true
+
+            buildConfigField("String", "BASE_URL", "\"https://api.themoviedb.org/\"")
+            buildConfigField("String", "API_KEY", "\"dfc67e319cc457c3d0d20948a046b160/\"")
+
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
             )
@@ -53,13 +65,14 @@ android {
 
 dependencies {
 
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.appcompat)
-    implementation(libs.material)
-    implementation(libs.androidx.activity)
-    implementation(libs.androidx.constraintlayout)
+// AndroidX
+    implementation(Dependencies.AndroidX.core)
+    implementation(Dependencies.AndroidX.appcompat)
+    implementation(Dependencies.AndroidX.material)
+    implementation(Dependencies.AndroidX.constraintlayout)
+    implementation(Dependencies.AndroidX.viewPager)
 
-//Lifecycle
+    //Lifecycle
     implementation(Dependencies.Lifecycle.lifecycleViewModel)
     implementation(Dependencies.Lifecycle.lifecycleViewModelSavedState)
     implementation(Dependencies.Lifecycle.lifecycleLivedata)
@@ -74,7 +87,9 @@ dependencies {
 
     // Hilt
     implementation(Dependencies.Hilt.hilt)
+    kapt(Dependencies.Hilt.compiler)
     implementation(Dependencies.Hilt.hiltNavigation)
+
 
     //Coroutine
     implementation(Dependencies.Coroutine.coroutines)
@@ -89,11 +104,20 @@ dependencies {
 
     // Timber
     implementation(Dependencies.Timber.timber)
+    //Lottie
+    implementation(Dependencies.Lottie.lottie)
+    implementation(libs.androidx.legacy.support.v4)
+    implementation(libs.androidx.lifecycle.livedata.ktx)
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+    implementation(libs.androidx.fragment.ktx)
 
-   // implementation(Dependencies.LegacySupport.legacySupport)
+    // implementation(Dependencies.LegacySupport.legacySupport)
 
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+}// Allow references to generated code
+kapt {
+    correctErrorTypes = true
 }

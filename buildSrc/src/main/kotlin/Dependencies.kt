@@ -1,5 +1,17 @@
 object Dependencies {
 
+    object AndroidX {
+        const val core = "androidx.core:core-ktx:${Versions.core}"
+        const val appcompat = "androidx.appcompat:appcompat:${Versions.appcompat}"
+        const val material = "com.google.android.material:material:${Versions.material}"
+        const val constraintlayout = "androidx.constraintlayout:constraintlayout:${Versions.material}"
+        const val multidex = "androidx.multidex:multidex:${Versions.multidexVersion}"
+        const val activityKtx = "androidx.activity:activity-ktx:${Versions.activityVersion}"
+        /* const val activityKtx = "androidx.activity:activity-ktx:${Versions.activityVersion}"
+         const val fragment = "androidx.fragment:fragment-ktx:${Versions.fragment}"*/
+        const val viewPager = "androidx.viewpager2:viewpager2:${Versions.viewPager}"
+    }
+
     object Retrofit {
         const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
         const val convertor = "com.squareup.retrofit2:converter-gson:${Versions.gson}"
@@ -43,5 +55,9 @@ object Dependencies {
         const val lifecycleViewModel= "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycle_version}"
         const val lifecycleLivedata= "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.lifecycle_version}"
         const val lifecycleViewModelSavedState= "androidx.lifecycle:lifecycle-viewmodel-savedstate:${Versions.lifecycle_version}"
+    }
+
+    object Lottie {
+        const val lottie = "com.airbnb.android:lottie:${Versions.lottie}"
     }
 }

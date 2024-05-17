@@ -22,7 +22,7 @@ import kotlinx.coroutines.launch
 abstract class BaseFragment<V : ViewBinding> : Fragment() {
 
     private var _binding: V? = null
-    private val binding get() = _binding!!
+    val binding get() = _binding!!
     protected abstract fun viewBindingLayout(): V
     protected abstract fun initializeView(savedInstanceState: Bundle?)
     private var handler: Handler? = null
@@ -88,23 +88,6 @@ abstract class BaseFragment<V : ViewBinding> : Fragment() {
         _binding = null
     }
 
-    protected inline infix fun <T> Flow<T>.bindTo(crossinline action: (T) -> Unit) {
-        with(viewLifecycleOwner) {
-            lifecycleScope.launch {
-                repeatOnLifecycle(Lifecycle.State.STARTED) {
-                    collect {
-                        action(it)
-                    }
-                }
-            }
-        }
-    }
-
-    fun execute(job: suspend () -> Unit) {
-        lifecycleScope.launch {
-            job.invoke()
-        }
-    }
 
     protected fun onBackPressed() {
         val view = view
