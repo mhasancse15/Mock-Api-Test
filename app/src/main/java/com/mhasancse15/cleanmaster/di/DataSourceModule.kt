@@ -2,6 +2,8 @@ package com.mhasancse15.cleanmaster.di
 
 
 import com.mhasancse15.cleanmaster.data.source.MovieService
+import com.mhasancse15.cleanmaster.data.source.RemoteDateSourceImpl
+import com.mhasancse15.cleanmaster.domain.source.RemoteDataSource
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -12,8 +14,8 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object DataSourceModule {
 
-  /*  @Provides
+    @Provides
     @Singleton
     fun provideRemoteDateSource(remoteService: MovieService): RemoteDataSource =
-        RemoteDateSourceImpl(remoteService)*/
+        RemoteDateSourceImpl(remoteService)
 }

@@ -51,10 +51,11 @@ object NetworkModule {
     @Provides
     @Singleton
     fun provideLoggerInterceptor(): HttpLoggingInterceptor {
-        val interceptor = HttpLoggingInterceptor { message -> Timber.e(message) }
+       /* val interceptor = HttpLoggingInterceptor { message -> Timber.e(message) }
         interceptor.apply { interceptor.level = HttpLoggingInterceptor.Level.HEADERS }
         interceptor.apply { interceptor.level = HttpLoggingInterceptor.Level.BODY }
-        return interceptor
+        return interceptor*/
+        return HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
     }
 
     @Provides
