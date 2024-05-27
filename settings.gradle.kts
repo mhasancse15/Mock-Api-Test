@@ -22,5 +22,5 @@ dependencyResolutionManagement {
         }
     }
 }
-rootProject.name = "BrainStation23Task"
+rootProject.name = "MOCK-API-TESTING"
 include(":app")
