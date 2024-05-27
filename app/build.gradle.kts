@@ -57,7 +57,6 @@ android {
 
     buildFeatures {
         viewBinding = true
-        dataBinding  = true
         buildConfig = true
     }
 }
@@ -110,8 +109,7 @@ dependencies {
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.androidx.fragment.ktx)
 
-    // implementation(Dependencies.LegacySupport.legacySupport)
-    implementation ("com.github.mustafayigitt:MockResponseInterceptor:1.0.0")
+    implementation(Dependencies.LegacySupport.legacySupport)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
